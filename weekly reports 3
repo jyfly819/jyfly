@@ -1,0 +1,42 @@
+pip install pygame
+import random as rd
+import pygame as py
+x=rd.randint(0,500)
+y=rd.randint(0,500)
+food_location=[x, y]
+move_up=False
+move_down=False
+move_left=False
+move_right=True
+py.init()
+screen=py.display.set_mode((500, 500))
+title=py.display.set_caption('Snake')
+clock=py.time.Clock()
+while True:
+    clock.tick(20)
+    screen.fill([255,255,255])
+    for event in py.event.get():
+        if event.type==py.QUIT:
+            py.quit()
+        if event.type==py.KEYDOWN:
+            if event.key==py.K_DOWN:
+                move_up=False
+                move_down=True
+                move_left=False
+                move_right=False
+            if event.key==py.K_UP:
+                move_up=True
+                move_down=False
+                move_left=False
+                move_right=False
+            if event.key==py.K_LEFT:
+                move_up=False
+                move_down=False
+                move_left=True
+                move_right=False
+            if event.key==py.K_RIGHT:
+                move_up=False
+                move_down=False
+                move_left=False
+                move_right=True          
+           
